@@ -20,5 +20,16 @@
 <!--<p [innerText]="allowNewServer"></p>-->
 
 <p>{{serverCreationStatus}}</p>
+
 <app-server></app-server>
 <app-server></app-server>
+
+<hr>
+<!--Passing and using data with TWO way event binding-->
+<label>Reset Username Tool</label>
+<label>Username</label>
+<input type="text" class="form-control" [(ngModel)]="username">
+<p>{{username}}</p>
+<button class="btn btn-primary"
+[disabled]="username === ''" 
+(click)="username = ''">Reset Username</button>

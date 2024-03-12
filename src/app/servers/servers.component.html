@@ -21,8 +21,8 @@
 
 <p>{{serverCreationStatus}}</p>
 
-<app-server></app-server>
-<app-server></app-server>
+<!--creating a List using ngFor directive-->
+<app-server *ngFor="let server of servers"></app-server>
 
 <hr>
 <!--Passing and using data with TWO way event binding-->
@@ -30,6 +30,15 @@
 <label>Username</label>
 <input type="text" class="form-control" [(ngModel)]="username">
 <p>{{username}}</p>
+
+<!--angular directives-->
+<p *ngIf="resetText">Reset Triggered</p>
+<!--angular directives with else-->
+<p *ngIf="resetText; else noServer">Reset Triggered</p>
+<ng-template #noServer>
+    <p>No server was created.</p>
+</ng-template>
+
 <button class="btn btn-primary"
 [disabled]="username === ''" 
-(click)="username = ''">Reset Username</button>
+(click)="onResetText()">Reset Username</button>
